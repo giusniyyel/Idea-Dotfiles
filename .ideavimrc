@@ -1,0 +1,92 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+""" Map leader to space ---------------------
+let mapleader=" "
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set easymotion
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+""" Common settings -------------------------
+syntax on
+set rnu
+set ruler
+set scrolloff=3
+set showmode
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+""" Idea specific settings ------------------
+set ideajoin
+set idearefactormode=keep
+
+""" System clipboard -------------------------
+vmap <leader>y "+y
+nmap <leader>y "+yy
+nmap <leader>p "+p
+nmap <leader>P "+P
+vmap <leader>p "+p
+vmap <leader>P "+P
+
+""" Scrolling -------------------------
+map <leader>d <C-d>
+map <leader>u <C-u>
+
+""" IDE -------------------------
+map <leader>h <action>(PreviousTab)
+map <leader>l <action>(NextTab)
+map <leader>w <action>(SaveAll)
+map <leader>q <action>(CloseContent)
+map <leader>Q <action>(ReopenClosedTab)
+map <leader>z <action>(ToggleDistractionFreeMode)
+map <leader>i <action>(Generate)
+map <leader>R <action>(Run)
+map <leader>c <Action>(Stop)
+map <leader>C <Action>(GotoClass)
+map <leader><leader> <action>(Switcher)
+
+""" Git & VCS -------------------------
+nmap <leader>m <action>(Git.Menu)
+nmap <leader>H <action>(Vcs.ShowTabbedFileHistory)
+
+""" Code Navigation -------------------------
+nmap <leader>] <action>(GotoImplementation)
+nmap <leader>[ <action>(GotoSuperMethod)
+nmap <leader>U <action>(FindUsages)
+nmap <leader>gt <action>(GotoTest)
+nmap <leader>k <action>(HighlightUsagesInFile)
+nmap <leader>/ <action>(ShowErrorDescription)
+nmap <leader>E <action>(GotoNextError)
+
+""" Code Refactoring -------------------------
+nmap <leader>rr <action>(RenameElement)
+
+""" Mappings -------------------------
+" unimpaired mappings
+nmap [<leader> O<esc>j
+nmap ]<leader> o<esc>k
+" easymotion
+nmap <leader>f <Plug>(easymotion-s)
+nmap <leader>e <Plug>(easymotion-f)
+" built-in navigation to navigated items works better
+nmap <c-o> (action Back)
+nmap <c-i> (action Forward)
+" but preserve ideavim defaults
+nmap g<c-o> <c-o>
+nmap g<c-i> <c-i>
+" built in search looks better
+nmap / <action>(Find)
+" but preserve ideavim search
+nmap g/ /
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
